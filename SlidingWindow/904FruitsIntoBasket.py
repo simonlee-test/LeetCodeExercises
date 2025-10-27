@@ -7,8 +7,9 @@ class Solution:
         max_len = 0
         fruit_count = defaultdict(int)
 
+        #iterate from 0 to len(fruits)-1
         for end in range(len(fruits)):
-            # increase the count of the respective fruit
+            # increase the count of the respective fruit, to track the types of fruits
             fruit_count[fruits[end]] += 1
 
             # when more than 2 types of fruits,
@@ -16,9 +17,10 @@ class Solution:
                 # delete one type of fruit completely to start the next cycle.
                 fruit_count[fruits[start]] -= 1
                 if fruit_count[fruits[start]] == 0:
-                    del fruit_count[fruits[start]]
+                    del fruit_count[fruits[start]] #this will be the stopping point
                 start += 1
-            # This would serve a record for max_len for 2 types of fruits.
+                
+            # This would serve a record for max_len for 2 types of fruits, it would compare every iteration until the for loop ends.
             max_len = max(max_len, end - start + 1)
 
         return max_len
