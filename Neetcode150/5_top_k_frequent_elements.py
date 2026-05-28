@@ -106,6 +106,7 @@ def topKFrequent2(nums: List[int], k: int) -> List[int]:
     
     res = []
     for i in range(k):
+        #get the respective numbers from the arranged freq
         res.append(heapq.heappop(heap)[1])
     
     return res
